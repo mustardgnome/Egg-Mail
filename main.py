@@ -17,8 +17,8 @@ SECRET_KEY = ""
 
 
 parser = reqparse.RequestParser()
-parser.add_argument('username', type=str, required=True, help="Username cannot be blank")
-parser.add_argument('password', type=str, required=True, help="password cannot be blank")
+parser.add_argument('username', type=str, location='form', required=True, help="Username cannot be blank")
+parser.add_argument('password', type=str, location='form', required=True, help="password cannot be blank")
 
 def generate_nonce():
     return uuid.uuid4().hex + uuid.uuid1().hex
